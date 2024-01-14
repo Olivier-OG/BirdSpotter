@@ -49,7 +49,8 @@ Wanneer er geen vogels in de database zitten, toon je geen form.
 Na het succesvol toevoegen van een spot in de databank, navigeer je naar het overzicht van de vogels.
 
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/d75614bd-43d2-4d76-8b6d-de44f9b4791b
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/ff053aca-da8c-43c1-9672-d6e0be73ea8d
+
 
 ## Vraag 5: Optimalisatie (10 pt)
 In de klasse `Services.Birds.BirdService` is er een functie genaamd `GetIndexAsync`. Optimaliseer de bevraging van de database zonder de signatuur aan te passen.
@@ -69,14 +70,14 @@ Wanneer een spot wordt toegevoegd, moet er een alert getoond worden: "The BIRD i
 Gebruik hiervoor het package [SweetAlert2](https://www.nuget.org/packages/CurrieTechnologies.Razor.SweetAlert2/).
 
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/079e93d7-636b-48c7-af24-180a6983dd7b
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/c08fb835-2675-4e85-abbc-c5061cfe7e41
+
 
 ## Vraag 8: Interop (15 pt)
 We zouden graag de locatie van de gebruiker bemachtigen bij het toevoegen van een spot. Op de pagina `Prototypes/CurrentLocation.razor` dien je dit te implementeren. Wanneer er op de knop `Get Location` geklikt wordt, worden de velden `latitude` en `longitude` ingevuld in de voorziene tekstboxen met de locatie van de gebruiker op dat moment. Allicht heb je wat aan de volgende zoektermen: "Blazor Interop" en Geolocation JavaScript. Je mag geen packages toevoegen aan de solution. JavaScript dien je te schrijven in de `Client/wwwroot/index.html`.
 
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/3d4da66b-a9f5-431f-b12a-db50f11e1c64
-
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/56f1e5d7-e988-4fe7-afa7-ae516a38c4c6
 
 
 # English version
@@ -131,7 +132,7 @@ If there are no birds in the database, do not show a form.
 
 After successfully adding a spot to the database, navigate to the bird overview.
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/d75614bd-43d2-4d76-8b6d-de44f9b4791b
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/ff053aca-da8c-43c1-9672-d6e0be73ea8d
 
 
 ## Question 5: Optimization (10 pt)
@@ -151,10 +152,12 @@ info: Server.Middleware.ElapsedTimeMiddleware[0]
 When a spot is added, an alert should be shown: "The BIRD is the WORD!".
 For this, use the package [SweetAlert2](https://www.nuget.org/packages/CurrieTechnologies.Razor.SweetAlert2/).
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/079e93d7-636b-48c7-af24-180a6983dd7b
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/c08fb835-2675-4e85-abbc-c5061cfe7e41
 
 ## Question 8: Interop (15 pt)
 We would like to obtain the user's location when adding a spot. On the page `Prototypes/CurrentLocation.razor`, you need to implement this. When the `Get Location` button is clicked, the fields `latitude` and `longitude` should be filled in the provided text boxes with the user's location at that time. You might find the following search terms useful: "Blazor Interop" and Geolocation JavaScript. You are not allowed to add packages to the solution. JavaScript should be written in the `Client/wwwroot/index.html`.
 
 
-https://github.com/HOGENT-Web/csharp-examination-2023-solution-1/assets/10981553/3d4da66b-a9f5-431f-b12a-db50f11e1c64
+https://github.com/HOGENT-Web/csharp-examination-2023-starter-1/assets/10981553/56f1e5d7-e988-4fe7-afa7-ae516a38c4c6
+
+
