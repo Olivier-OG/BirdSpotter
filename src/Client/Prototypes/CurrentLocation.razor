@@ -1,0 +1,17 @@
+﻿@page "/prototypes/geolocation"
+
+<button class="button is-primary" @onclick="GetLocationAsync">Get Location</button>
+
+<div class="field">
+    <label class="label">Latitude</label>
+    <div class="control">
+        <input class="input" type="text" value="@latitude">
+    </div>
+</div>
+
+<div class="field">
+    <label class="label">Longitude</label>
+    <div class="control">
+        <input class="input" type="text" value="@longitude">
+    </div>
+</div>
