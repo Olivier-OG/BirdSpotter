@@ -2,7 +2,7 @@
 De applicatie dient om vogelmeldingen te beheren.
 
 ## Domein
-Het domein is relatief eenvoudig, er zijn slechts een paar klassen die we bijhouden in de databank, `Bird` en `Spot`. Je mag tijdens het examen geen visibiliteit van de properties aanpassen. Telkens er iemand een vogel spot, houden we een historiek bij de locatie en andere details.
+Het domein is relatief eenvoudig, er zijn slechts een paar klassen die we bijhouden in de databank, `Bird` en `Spot`. Je mag tijdens het examen geen visibiliteit van de properties aanpassen. Telkens er iemand een vogel spot, houden we een historiek bij van de locatie en andere details.
 
 ## Puntenverdeling
 De punten staan naast de vragen, indien je solution niet compileert (0/20), code in commentaar wordt niet bekeken.
@@ -15,7 +15,7 @@ Alle packages zitten reeds in de projecten, je dient geen extra packages via NuG
 
 ## Vraag 1: Domein (10 pt)
 
-`Spot.SpottedOn` controleert via een [Ardalis Guard Clause](https://github.com/ardalis/GuardClauses/tree/main) in de setter of de gegeven datum maximaal 1 jaar oud is, en niet in de toekomst ligt. Je houdt hierbij enkel de datum van het `DateTime` object over en verwijdert de tijdscomponent.
+`Spot.SpottedOn`: controleer via een [Ardalis Guard Clause](https://github.com/ardalis/GuardClauses/tree/main) in de setter of de gegeven datum maximaal 1 jaar oud is, en niet in de toekomst ligt. Je houdt hierbij enkel de datum van het `DateTime` object over en verwijdert de tijdscomponent.
 
 In `Bird.SpottedAt` controleer je of een spot met die `Latitude` en `Longitude` voor deze vogel nog niet bestaat. Indien die wel al bestaat, gooi je een `EntityAlreadyExistsException` met de relevante informatie. Indien die nog niet bestaat, voeg je de spot toe aan de lijst van spots. Bird_Should.cs kan je gebruiken om te testen of dit werkt.
 
@@ -31,7 +31,7 @@ Totaal: 6 testen.
 ## Vraag 3: Configuratie (10 pt)
 
 Voeg volgende database configuratie toe:
-- `Bird.Name` is uniek en heeft maximale lengte 1000 characters
+- `Bird.Name` is uniek en heeft een maximale lengte van 1000 characters
 - `Spot` kan niet bestaan zonder een `Bird`
 - Wanneer een `Bird` wordt verwijderd, worden zijn `Spot`s ook verwijderd
 
