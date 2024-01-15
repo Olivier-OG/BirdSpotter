@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using Shared.Birds;
 
-namespace Server.Controllers.Birds;
+namespace Server.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -21,7 +20,9 @@ public class BirdController : ControllerBase
         return await birdService.GetIndexAsync();
     }
 
-    /// <summary>
-    /// TODO: Implement a function which adds a spot for a bird.
-    /// </summary>
+    [HttpPost]
+    public async Task Spot([FromBody] BirdDto.Spot model)
+    {
+        await birdService.SpotAsync(model);
+    }
 }

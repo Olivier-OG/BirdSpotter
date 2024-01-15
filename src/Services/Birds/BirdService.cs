@@ -1,8 +1,7 @@
-using Persistence;
-using Microsoft.EntityFrameworkCore;
-using Shared.Birds;
-using Domain.Birds;
 using Domain.Exceptions;
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+using Shared.Birds;
 
 namespace Services.Birds;
 
@@ -16,7 +15,7 @@ public class BirdService : IBirdService
     }
 
     /// <summary>
-    /// TODO Optimize this function
+    ///     TODO Optimize this function
     /// </summary>
     /// <returns></returns>
     public async Task<IEnumerable<BirdDto.Index>> GetIndexAsync()
@@ -26,25 +25,31 @@ public class BirdService : IBirdService
         var response = new List<BirdDto.Index>();
 
         foreach (var bird in birds)
-        {
             response.Add(new BirdDto.Index
             {
                 Id = bird.Id,
                 Name = bird.Name,
                 ImageUrl = bird.ImageUrl,
-                AmountOfSpots = bird.Spots.Count,
+                AmountOfSpots = bird.Spots.Count
             });
-        }
         return response;
     }
 
-
-    /// <summary>
-    /// TODO
-    /// </summary>
     public async Task SpotAsync(BirdDto.Spot model)
     {
-        throw new NotImplementedException("Implement this function.");
+        var bird = await dbContext.Birds.SingleAsync(b => b.Id == model.BirdId);
+
+        if (bird is null)
+            throw new EntityNotFoundException(nameof(bird), model.BirdId);
+
+        bird.SpottedAt(model.Longitude,
+            model.Latitude,
+            model.Spotter,
+            model.Remark,
+            model.SpottedOn);
+
+        dbContext.Birds.Update(bird);
+        
+        await dbContext.SaveChangesAsync();
     }
 }
-

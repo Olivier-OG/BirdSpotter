@@ -25,8 +25,10 @@ public class BirdDto
         {
             public Validator()
             {
-                RuleFor(s => s.BirdId).NotEmpty().GreaterThanOrEqualTo(0);;
-                // RuleFor(x => x.LastName).NotEmpty().MaximumLength(100);
+                RuleFor(s => s.BirdId).NotEmpty();
+                RuleFor(s => s.Longitude).NotEmpty();
+                RuleFor(s => s.Latitude).NotEmpty();
+                RuleFor(s => s.SpottedOn).NotEmpty();
             }
         }
     }

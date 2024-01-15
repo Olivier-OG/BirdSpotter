@@ -1,33 +1,47 @@
 ﻿@page "/birds/add-spot"
-@using Shared.Birds
 <PageTitle>Spotted a bird!</PageTitle>
-<form >
+@if (birds.Count == 0)
+{
+    <p>Loading birds...</p>
+    return;
+}
+<EditForm Model="model" OnValidSubmit="SubmitValidForm">
+    <FluentValidationValidator/>
+    <ValidationMessage For="() => model.BirdId"/>
+    <ValidationMessage For="() => model.Latitude"/>
+    <ValidationMessage For="() => model.Longitude"/>
+    <ValidationMessage For="() => model.SpottedOn"/>
+    
     <div class="columns">
         <div class="column">
             <div class="field">
                 <label class="label">Bird</label>
                 <div class="select is-fullwidth">
-                    <select>
-                        <option value="1">Name</option>
-                    </select>
+                    <InputSelect @bind-Value="model.BirdId">
+                        <option disabled selected value="0">-- Select a bird --</option>
+                        @foreach (var bird in birds)
+                        {
+                            <option value="@bird.Id">@bird.Name</option>
+                        }
+                    </InputSelect>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Latitude</label>
                 <div class="control">
-                    <input class="input" />
+                    <InputNumber class="input" @bind-Value="model.Latitude"/>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Longitude</label>
                 <div class="control">
-                    <input class="input" />
+                    <InputNumber class="input" @bind-Value="model.Longitude"/>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Spotted On</label>
                 <div class="control">
-                    <input class="input" />
+                    <InputDate class="input" @bind-Value="model.SpottedOn"/>
                 </div>
             </div>
         </div>
@@ -35,13 +49,13 @@
             <div class="field">
                 <label class="label">Spotter</label>
                 <div class="control">
-                    <input class="input" />
+                    <InputText class="input" @bind-Value="model.Spotter"/>
                 </div>
             </div>
             <div class="field">
                 <label class="label">Remark</label>
                 <div class="control">
-                    <input class="input" />
+                    <InputTextArea rows="4" class="textarea" @bind-Value="model.Remark"/>
                 </div>
             </div>
             <div class="buttons">
@@ -50,4 +64,4 @@
             </div>
         </div>
     </div>
-</form>
+</EditForm>
