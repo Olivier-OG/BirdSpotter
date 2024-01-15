@@ -5,10 +5,10 @@ namespace Domain.Tests.Birds;
 // ReSharper disable once InconsistentNaming
 public class Spot_Should
 {
-    private static DateTime[] source =
+    public static IEnumerable<object[]> Source => new List<object[]>
     {
-        new(2024, 1, 16),
-        new(2023, 1, 13)
+        new object[] { new DateTime(2024, 1, 16) },
+        new object[] { new DateTime(2023, 1, 13) }
     };
 
     [Theory]
@@ -26,7 +26,7 @@ public class Spot_Should
     }
 
     [Theory]
-    [MemberData(nameof(source))]
+    [MemberData(nameof(Source))]
     public void Not_Be_Created_With_Invalid_SpottedOn(DateTime spottedOn)
     {
         var act = () =>
@@ -38,7 +38,7 @@ public class Spot_Should
     }
 
     [Theory]
-    [MemberData(nameof(source))]
+    [MemberData(nameof(Source))]
     public void Throw_Exception_When_Set_Invalid_SpottedOn(DateTime spottedOn)
     {
         Spot spot = new(0.01, 0.01, "Olivier", "Up In A Tree", DateTime.Now);
