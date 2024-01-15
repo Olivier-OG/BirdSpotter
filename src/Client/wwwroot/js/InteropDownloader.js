@@ -1,13 +1,9 @@
-function getLocation() {
-    let response = "Geolocation is not supported;on your browser.";
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            if (!position)
-                return;
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            response = `${latitude};${longitude}`;
-        });
-    }
-    return response
+async function getLocation() {
+    if (!navigator.geolocation)
+        return "Geolocation is not supported;on your browser.";
+    return new Promise((resolve) =>
+        navigator.geolocation.getCurrentPosition(position => 
+            resolve(`${position.coords.latitude};${position.coords.longitude}`)
+        )
+    )
 }
