@@ -6,11 +6,14 @@ namespace Persistence.Configurations.Birds;
 
 internal class BirdConfiguration : IEntityTypeConfiguration<Bird>
 {
-    /// <summary>
-    /// TODO: Implement Unique Index on name, max length (name) of 1000 and required FK, with cascade on delete.
-    /// </summary>
     public void Configure(EntityTypeBuilder<Bird> builder)
     {
+        builder.HasIndex(b => b.Name).IsUnique();
+        builder.Property(b => b.Name).HasMaxLength(1000);
 
+        builder
+            .HasMany(b => b.Spots)
+            .WithOne()
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

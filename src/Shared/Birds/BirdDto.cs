@@ -25,7 +25,8 @@ public class BirdDto
         {
             public Validator()
             {
-                //TODO
+                RuleFor(s => s.BirdId).NotEmpty().GreaterThanOrEqualTo(0);;
+                // RuleFor(x => x.LastName).NotEmpty().MaximumLength(100);
             }
         }
     }
