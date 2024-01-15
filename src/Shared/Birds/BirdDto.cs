@@ -28,7 +28,9 @@ public class BirdDto
                 RuleFor(s => s.BirdId).NotEmpty();
                 RuleFor(s => s.Longitude).NotEmpty();
                 RuleFor(s => s.Latitude).NotEmpty();
-                RuleFor(s => s.SpottedOn).NotEmpty();
+                RuleFor(s => s.SpottedOn)
+                    .NotEmpty()
+                    .InclusiveBetween(DateTime.Now.AddYears(-1), DateTime.Now);
             }
         }
     }
