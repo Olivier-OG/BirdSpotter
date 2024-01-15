@@ -1,17 +1,20 @@
-﻿using System;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace Client.Prototypes;
 
 public partial class CurrentLocation
 {
-    private string longitude;
     private string latitude;
+    private string longitude;
+
+    [Inject] private IJSRuntime JsRuntime { get; set; } = default!;
+
     private async Task GetLocationAsync()
     {
-        longitude = "Not calculated....";
-        latitude = "Not calculated....";
+        var position = await JsRuntime.InvokeAsync<string>("getLocation");
+    Console.WriteLine(position);
+        latitude = position.Split(";")[0];
+        longitude = position.Split(";")[1];
     }
 }
-
