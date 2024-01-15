@@ -3,6 +3,7 @@ using Domain.Exceptions;
 
 namespace Domain.Tests.Birds;
 
+// ReSharper disable once InconsistentNaming
 public class Bird_Should
 {
     [Theory]
